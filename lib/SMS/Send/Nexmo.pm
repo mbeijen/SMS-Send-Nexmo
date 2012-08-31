@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 package SMS::Send::Nexmo;
+
+our $VERSION = '0.20';
 # ABSTRACT: SMS::Send backend for the Nexmo.com SMS service.
 
 use SMS::Send::Driver;
@@ -56,6 +58,12 @@ sub send_sms {
 1;
 
 
+
+1;
+
+__END__
+=pod
+
 =head1 SYNOPSIS
 
 This is an SMS::Send backend for the L<http://nexmo.com> SMS service. 
@@ -64,73 +72,23 @@ SMS::Send instead.
 
 =head1 DESCRIPTION
 
-Installing this module will also install almost all the modules you'll need to run OTRS.
+It's easy!
 
-Note that OTRS itself also ships some CPAN modules in Kernel/cpan-libs, these modules will
-not be required by Task::OTRS. See for the bundled list of modules in OTRS 
-L<Module::OTRS::CoreList>.
-
-The only module that you need to run OTRS but that will not be installed is the database driver, because OTRS supports 
-multiple database backends. So after you're done installing Task::OTRS you might also want to
-install the database driver for your DMBS of choice:
-
-=cut
-
-1;
-
-__END__
-=pod
-
-=head1 NAME
-
-SMS::Send::CSoft - SMS::Send driver to send via the Connection Software service
-
-=head1 VERSION
-
-version 1.111490
-
-=head1 SYNOPSIS
-
-  # Create a testing sender
-  my $send = SMS::Send->new( 'CSoft',
-                             _login => 'csoft username',
-                             _password => 'csoft pin' );
+  # Create a sender
+  my $send = SMS::Send->new( 'Nexmo',
+                             _username => '12345ab6',
+                             _password => 'ab1cd2e3',
+                             _from     => '0031715793800',
+                            );
 
   # Send a message
   $send->send_sms(
      text => 'Hi there',
-     to   => '+61 (4) 1234 5678',
+     to   => '+31 6 45742418',
   );
 
-=head1 DESCRIPTION
-
-SMS::Send driver for sending SMS messages with the Connection
-Software (http://www.csoft.co.uk/) SMS service.
-
-=head1 METHODS
-
-=head2 CONSTRUCTOR
-
-This constructor should not be called directly.  See L<SMS::Send> for
-details.
-
-=head1 SEE ALSO
-
-SMS::Send(3), SMS::Send::Driver(3)
-
-Connection Software Website: http://www.csoft.co.uk/
-
-=head1 AUTHOR
-
-Mark Hindess <soft-cpan@temporalanomaly.com>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2010 by Mark Hindess.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This module uses L<Nexmo::SMS> as backend. If you need more advanced
+functions than just sending messages; please use L<Nexmo::SMS> directly.
 
 =cut
 
-1;
