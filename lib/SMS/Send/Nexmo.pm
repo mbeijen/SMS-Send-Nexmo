@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package SMS::Send::Nexmo;
 
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 # ABSTRACT: SMS::Send backend for the Nexmo.com SMS service.
 
 use SMS::Send::Driver;

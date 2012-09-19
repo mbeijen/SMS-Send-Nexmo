@@ -1,0 +1,6 @@
+0.21      2012-09-19
+- Fixed error message "$obj->method" is not interpolated in strings" (RENEEB)
+- Added Changes file.
+
+0.20      2012-08-31
+- Fixed version numbering.
