@@ -49,7 +49,7 @@ sub send_sms {
   my $response = $sms->send;
   
   unless ($response->is_success) {
-    warn "Failure: $sms->errstr\n" if ($self->{_verbose});
+    warn "Failure: " . $sms->errstr . "\n" if ($self->{_verbose});
     return 0;
   }
   return 1;
