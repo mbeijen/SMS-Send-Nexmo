@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package SMS::Send::Nexmo;
 
-our $VERSION = '0.22';
+our $VERSION = '0.23';
 # ABSTRACT: SMS::Send backend for the Nexmo.com SMS service.
 
 use SMS::Send::Driver;
@@ -14,7 +14,6 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw();
 
 our $URL = 'https://rest.nexmo.com/sms/json';
-
 
 sub new {
   my $pkg = shift;
@@ -45,9 +44,9 @@ sub send_sms {
       from => $self->{_from},
       to   => $p{to},
       );
-  
+
   my $response = $sms->send;
-  
+
   unless ($response->is_success) {
     warn "Failure: " . $sms->errstr . "\n" if ($self->{_verbose});
     return 0;
@@ -57,11 +56,8 @@ sub send_sms {
 
 1;
 
-
-
-1;
-
 __END__
+
 =pod
 
 =head1 SYNOPSIS
